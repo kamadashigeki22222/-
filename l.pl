@@ -116,7 +116,7 @@ my $n = 0;
 	#open(FP1,"idou3_kamada.csv") or die("cannot open the file");
 	open(FP1,"kasai_program/result/move_$user_name.txt") or die("cannot open the file");
 	
-#3
+#33333
 	my $outfile = file("move_times/linear/li211111_$user_name.txt");
 	print "$outfile\n"; 
 	my $writer = $outfile->open('w') or die $!;
