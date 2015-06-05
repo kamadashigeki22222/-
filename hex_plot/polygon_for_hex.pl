@@ -8,6 +8,13 @@ use Geo::Hex v => 3, qw(latlng2geohex geohex2latlng latlng2zone geohex2zone);
 #use Geo::Hex;
 use Path::Class;
 #use XML::LibXML;
+
+
+#idoubunkatu 1 移動状態を分割せずにおこない，最後に滞在地を除去，2　移動状態に分割してからおこなう
+#prm　1~15までのコストパラメータ
+#jyoutai　1　滞在地　2　移動経路　3　生活圏の移動経路
+
+
     print "user_name ";
     my $user_name = <STDIN>;
      chomp($user_name);
