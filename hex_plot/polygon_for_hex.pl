@@ -9,20 +9,64 @@ use Geo::Hex v => 3, qw(latlng2geohex geohex2latlng latlng2zone geohex2zone);
 use Path::Class;
 #use XML::LibXML;
     print "user_name ";
-    my $username = <STDIN>;
+    my $user_name = <STDIN>;
+     chomp($user_name);
     #print $username ." test\n";
     # $_ = <STDIN>;
-    chomp($username);
+    print "jyoutai ";
+    my $jyoutai = <STDIN>;
+     chomp($jyoutai);
+    print "idoubunkatu ";
+    my $idoubunkatu = <STDIN>;
+    chomp($idoubunkatu);
+    print "input paramater=>";
+    my $prm = <STDIN>;
+    chomp($prm);
+
+
     #入力ファイル
+    if ($jyoutai == 1) {
+         #open(FP,"< ../spot_times/merge/merge2_hex_spot_times_filter_$user_name.txt") or die("cannot open the file"); #input fiel name
+         
+         open(FP,"< ../spot_times/merge/merge2_hex_spot_times_filter_kamada.txt") or die("cannot open the file"); #input fiel name
+        
+    }elsif($jyoutai == 2){
+
+        if($idoubunkatu == 1 ){
+            open(FP,"< ../move_times/idou/idou_$user_name.txt") or die("cannot open the file"); #input fiel name
+        
+        }else{
+        
+        if($idoubunkatu == 2){
+         open(FP,"< ../move_times/idou/bunkatu_idou_$user_name.txt") or die("cannot open the file"); #input fiel name
+             }
+        
+            }
+        
+        
+
+    }elsif($jyoutai == 3){
+         if($idoubunkatu == 1 ){
+          open(FP,"< ../auto_count_result/kamada/merge/gn$prm-result_route_$user_name.txt") or die("cannot open the file"); #input fiel name
+               
+    }else{
+         if($idoubunkatu == 2){
+         open(FP,"< ../auto_count_result/kamada/merge/bunkatu_gn$prm-result_route_$user_name.txt") or die("cannot open the file"); #input fiel name
+            }
+        }
+    
+    
+}
+
     #my $input = '../hex_count/auto_count_result/'.$_.'/new/gn3-result_route_'.$_.'.txt';
     #my $input = '"../spot_times/merge2_hex_spot_times_filter_$_.txt"';
     #my $input = '../hex_count/move_times/hex_move_times_more3_'.$_.'.txt';
     #my $input = '../spot_label/'.$_.'/new_kasai_3_hex.txt';
     
     #open(FP,"< ../spot_times/merge/merge6_hex_spot_times_filter_$username.txt") or die("cannot open the file"); #input fiel name
-    open(FP,"< ../move_times/idou/idou333_$username.txt") or die("cannot open the file"); #input fiel name
+    #open(FP,"< ../move_times/idou/idou333_$username.txt") or die("cannot open the file"); #input fiel name
     #open(FP,"< ../move_times/linear/li2000_kamada.txt") or die("cannot open the file"); #input fiel name
-    #open(FP,"< ../auto_count_result/kamada/merge/3m_gn1-result_route_$username.txt") or die("cannot open the file"); #input fiel name
+    #open(FP,"< ../auto_count_result/kamada/merge/test_gn15-result_route_$username.txt") or die("cannot open the file"); #input fiel name
     
 
     #my $input = '../hex_count/auto_count_result/s_t_m_t_hayashi_merge.csv';
@@ -33,8 +77,42 @@ use Path::Class;
     #open(FH,"> kml/m_gn1-result_route_$username.kml") or die("cannot open the file"); #input fiel name
     #open(FH,"> kml/m_gn9-result_$username.kml") or die("cannot open the file"); #input fiel name
     #open(FH,"> kml/m_gn15-result_$username.kml") or die("cannot open the file"); #input fiel name
-    open(FH,"> kml/sidou2_$username.kml") or die("cannot open the file"); #input fiel name
+    #open(FH,"> kml/seikatuidou2_$username.kml") or die("cannot open the file"); #input fiel name
 
+ #出力ファイル
+
+if ($jyoutai == 1) {
+    print "a";
+         print "$user_name ";
+         open(FH,"> kml/spot_$user_name.kml") or die("cannot open the file"); #input fiel name
+         
+    }elsif($jyoutai == 2){
+
+        if($idoubunkatu == 1 ){
+            open(FH,"> kml/idou_$user_name.kml") or die("cannot open the file"); #input fiel name
+        
+        }else{
+        
+        if($idoubunkatu == 2){
+         open(FH,"> kml/bunkatu_idou_$user_name.kml") or die("cannot open the file"); #input fiel name
+             }
+        
+            }
+        
+        
+
+    }elsif($jyoutai == 3){
+         if($idoubunkatu == 1 ){
+          open(FH,"> kml/gn$prm-result_route_$user_name.kml") or die("cannot open the file"); #input fiel name
+               
+    }else{
+         if($idoubunkatu == 2){
+          open(FH,"> kml/bunkatu_gn$prm-result_route_$user_name.kml") or die("cannot open the file"); #input fiel name
+            }
+        }
+    
+    
+}
 
 
     print FH '<?xml version="1.0" encoding="UTF-8"?>

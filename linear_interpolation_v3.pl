@@ -109,13 +109,24 @@ my $n = 0;
 	print "user_name ";
    	my $user_name = <STDIN>;
     chomp($user_name);
+    print "idoubunkatu ";
+   	my $idoubunkatu = <STDIN>;
+    chomp($idoubunkatu);
 
-
+my $outfile;
 	#input
-	#open(FP1,"gpxfile/$user_name/result/GM2TKfile0.txt") or die("cannot open the file");
-	open(FP1,"kasai_program/result/move_$user_name.txt") or die("cannot open the file");
-
-	my $outfile = file("move_times/linear/li2000_$user_name.txt");
+	if($idoubunkatu == 1){
+		open(FP1,"gpxfile/$user_name/result/GM2TKfile0.txt") or die("cannot open the file");
+		my $out = file("move_times/linear/li_$user_name.txt");
+		$outfile=$out;
+		
+		
+	}elsif($idoubunkatu == 2){
+		open(FP1,"kasai_program/result/move_$user_name.txt") or die("cannot open the file");
+		my $out = file("move_times/linear/bunkatu_li_$user_name.txt");
+		$outfile=$out;	
+	}
+	
 	print "$outfile\n"; 
 	my $writer = $outfile->open('w') or die $!;
 	#一つ目のデータ	
@@ -201,4 +212,3 @@ my $n = 0;
 	$n++;
 # }
 print "success!\n";	   
-#3

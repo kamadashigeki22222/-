@@ -44,9 +44,12 @@ sub split_from_fp{
 }	
 
 
- print "user_name ";
+ 	print "user_name ";
    my $user_name = <STDIN>;
     chomp($user_name);
+    print "idoubunkatu ";
+   	my $idoubunkatu = <STDIN>;
+    chomp($idoubunkatu);
 
 #滞在Hexのデータを入力
 open(FP1, "../spot_times/merge/merge2_hex_spot_times_filter_$user_name.txt") or die("cannot open the file");
@@ -73,9 +76,16 @@ my $filter = <STDIN>;
 my %move_hex=();
  %move_hex =();
  #input csv形式
-open(FP3, " linear/li2000_$user_name.txt") or die("cannot open the file");
-open(FP4, "> idou/idou333_$user_name.txt") or die("cannot open the file");
 
+ if($idoubunkatu == 1){
+open(FP3, " linear/li_$user_name.txt") or die("cannot open the file");
+open(FP4, "> idou/idou_$user_name.txt") or die("cannot open the file");
+
+}elsif($idoubunkatu == 2){
+	open(FP3, " linear/bunkatu_li_$user_name.txt") or die("cannot open the file");
+	open(FP4, "> idou/bunkatu_idou_$user_name.txt") or die("cannot open the file");
+
+}
 
 while(my $line = <FP3>){
 	#$test_count1++;

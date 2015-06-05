@@ -9,7 +9,7 @@ use LifelogEditor::GeoUtil;
 my $out;
 my $out2;
 
-print "user_name ->";
+print "user_name ";
 my $user_name = <STDIN>;
 chomp($user_name);
 my $newfile_fullpath = './gpxfile/'.$user_name.'/*.gpx';

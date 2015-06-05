@@ -276,21 +276,50 @@ chomp($user_name);
 print "input paramater=>";
 my $prm = <STDIN>;
 chomp($prm);
-#出力ファイル名
-open(FP2, ">./auto_count_result/$user_name/merge/3m_gn$prm-result_route_$user_name.txt") or die("cannot open the file");
+
+ print "idoubunkatu ";
+   	my $idoubunkatu = <STDIN>;
+    chomp($idoubunkatu);
+
 print "$user_name\n";
+#出力ファイル名
+#open(FP2, ">./auto_count_result/$user_name/merge/gn$prm-result_route_$user_name.txt") or die("cannot open the file");
+
+if($idoubunkatu == 1){
+open(FP2, ">./auto_count_result/$user_name/merge/gn$prm-result_route_$user_name.txt") or die("cannot open the file");
+
+}elsif($idoubunkatu == 2){
+	open(FP2, ">./auto_count_result/$user_name/merge/bunkatu_gn$prm-result_route_$user_name.txt") or die("cannot open the file");
+
+}
+
+
+	
+
 	my $file = IO::File->new();
 	#$file ->open("<../spot_label/$_/new_stay_seikai_$_.txt") or die("cannot open the file");
 	#滞在Hex,頻度　のデータを入力　使うのは滞在Hex名のみです（ただし,この形式で入力しないと読み込むときに警告が連発します。気にしないのであるばOKです）
 	#ここで入力したファイルにある滞在Hexと自宅間を移動経路で連結できます。つまり正解の滞在Hexを読み込むか抽出した滞在Hexを用いるかで単体評価と総合評価に用いる結果が得られます
 	$file ->open("< ./spot_times/seikatutaizai/merge2_result_$user_name.txt") or die("cannot open the file");
+	
+
 	my $file2 = IO::File->new();
 	#移動Hex,頻度　の形式のファイル（頻度順にソートしておくこと） 滞在Hex抽出で用いたものと同じです
-	$file2 ->open("< ./move_times/idou/idou_$user_name.txt") or die("cannot open the file");
+	#$file2 ->open("< ./move_times/idou/idou333_$user_name.txt") or die("cannot open the file");
+	
+if($idoubunkatu == 1){
+$file2 ->open("< ./move_times/idou/idou_$user_name.txt") or die("cannot open the file");
+
+}elsif($idoubunkatu == 2){
+	$file2 ->open("< ./move_times/idou/bunkatu_idou_$user_name.txt") or die("cannot open the file");
+}
 	my $file3 = IO::File->new();
 	#滞在Hex抽出で用いた　移動Hex,頻度　の形式のファイル　を入力してください
 	#これがない場合,∞の探索に陥る場合があります
 	$file3 ->open("< ./spot_times/merge/merge2_hex_spot_times_filter_$user_name.txt") or die("cannot open the file");
+	
+
+
 	my ($home,$a) = &ret_spot_array($file);
 	my @spot_data = @$a;
 	my ($home,$b) = &ret_spot_array($file3);

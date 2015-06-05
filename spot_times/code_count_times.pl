@@ -23,11 +23,17 @@ sub count_hex{
 }
 
 
-$_ =<STDIN>;
-chomp($_);
+print "user_name ";
+   	my $user_name = <STDIN>;
+    chomp($user_name);
+
+
+
 my $file = IO::File->new();
-$file ->open("kamada.csv") or die("cannot open the file");
-open(FP1, "> code/new_hex_spot_times_$_.txt") or die("cannot open the file");
+$file ->open("../kasai_program/result/stay_$user_name.csv") or die("cannot open the file");
+
+
+open(FP1, "> code/new_hex_spot_times_$user_name.txt") or die("cannot open the file");
 
 my %spot_hex = &count_hex($file);
 foreach my $key (sort{$spot_hex{$b} <=> $spot_hex{$a}}keys %spot_hex){

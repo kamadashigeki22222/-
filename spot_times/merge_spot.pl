@@ -14,6 +14,7 @@ chomp($user_name);
 
 my $file = IO::File->new();
 my $input = 'code/new_hex_spot_times_'.$user_name.'.txt';
+
 #my $input = ' code/new_hex_spot_times_kamada.txt';
 $file ->open("<$input") or die("cannot open the file");
 sub get_all_next_zone{
@@ -38,6 +39,7 @@ sub a_in_hash{
 
 #output
 open(FP2, "> merge/merge2_hex_spot_times_filter_$user_name.txt") or die("cannot open the file");
+
 my @geo=();
  
 while($_ = <$file>){
