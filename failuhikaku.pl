@@ -11,7 +11,28 @@ my @hexr;
 my @hexB;
 #my $time;
 
-open(FP1, "FileA.txt") or die("cannot open the file");
+	print "user_name ";
+   my $user_name = <STDIN>;
+    chomp($user_name);
+    print "idou-idoubunkatu    0 or 1 ";
+   my $bunkatu = <STDIN>;
+    chomp($bunkatu);
+
+
+
+
+
+if($bunkatu == 1){
+	open(FP1, "move_times/idou/idou_$user_name.txt") or die("cannot open the file");
+
+}elsif($bunkatu == 0){
+
+open(FP1, "move_times/idou/bunkatu_idou_$user_name.txt") or die("cannot open the file");
+
+}
+
+
+#open(FP1, "FileA.txt") or die("cannot open the file");
 
 while(my $line = readline(FP1)){
 	(my $hex,my $time) = split(/,/,$line);
@@ -22,10 +43,26 @@ while(my $line = readline(FP1)){
 
 }
 
-print "@hexr \n";
-close(Fp1);
+#print "@hexr \n";
+close(FP1);
 
-open(FP2, "FileB.txt") or die("cannot open the file");
+
+
+
+
+if($bunkatu == 1){
+
+	open(FP2, "move_times/idou/bunkatu_idou_$user_name.txt") or die("cannot open the file");
+	
+}elsif($bunkatu == 0){
+
+open(FP2, "move_times/idou/idou_$user_name.txt") or die("cannot open the file");
+
+
+}
+
+
+#open(FP2, "FileB.txt") or die("cannot open the file");
 
 while(my $line = readline(FP2)){
 	(my $hex,my $time) = split(/,/,$line);
@@ -36,7 +73,7 @@ while(my $line = readline(FP2)){
 
 }
 
-print "@hexB \n";
+#print "@hexB \n";
 close(FP2);
 
 my @correct;
@@ -62,6 +99,8 @@ foreach my $hex (@hexr){
 
 my $c_num = $#correct + 1;
 my $w_num = $#wrong + 1;
+
+#print "correct: @correct";
 
 print "correct: num:$c_num\n";
 print "wrong: num:$w_num\n";
