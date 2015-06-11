@@ -30,17 +30,24 @@ use Path::Class;
     my $prm = <STDIN>;
     chomp($prm);
 
+    #350行目で使用Hexのサイズを変更
+    print "input size=>";
+    my $size = <STDIN>;
+    chomp($size);
+
+
 
     #入力ファイル
     if ($jyoutai == 1) {
-         #open(FP,"< ../spot_times/merge/merge2_hex_spot_times_filter_$user_name.txt") or die("cannot open the file"); #input fiel name
-         
-         open(FP,"< ../spot_times/merge/merge2_hex_spot_times_filter_kamada.txt") or die("cannot open the file"); #input fiel name
+         open(FP,"< ../spot_times/merge/merge2_hex_spot_times_filter_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+         #open(FP,"< ../spot_times/code/new_hex_spot_times_kamada.txt") or die("cannot open the file"); #input fiel name
+         #open(FP,"< ../spot_times/merge/merge2_hex_spot_times_filter_kamada.txt") or die("cannot open the file"); #input fiel name
         
     }elsif($jyoutai == 2){
 
         if($idoubunkatu == 1 ){
-            open(FP,"< ../move_times/idou/idou_$user_name.txt") or die("cannot open the file"); #input fiel name
+            #open(FP,"< ../move_times/idou/idou_$user_name.txt") or die("cannot open the file"); #input fiel name
+             open(FP,"< ../move_times/linear/result1.txt") or die("cannot open the file"); #input fiel name
         
         }else{
         
@@ -89,9 +96,9 @@ use Path::Class;
  #出力ファイル
 
 if ($jyoutai == 1) {
-    print "a";
-         print "$user_name ";
-         open(FH,"> kml/spot_$user_name.kml") or die("cannot open the file"); #input fiel name
+    #print "a";
+         #print "$user_name ";
+         open(FH,"> kml/spot_$user_name$size.kml") or die("cannot open the file"); #input fiel name
          
     }elsif($jyoutai == 2){
 
@@ -332,6 +339,7 @@ print FH "<Polygon>
     # $placemark;
 }
 
+
 sub create_map {
     my $map = {};
     while(my $line = <FP>){     
@@ -341,7 +349,10 @@ sub create_map {
 
         my ($lat,$lng)= geohex2latlng($code);
         #hex size
-        my $zone = $geohex->to_zone($lat,$lng,10); 
+        #my $zone = $geohex->to_zone($lat,$lng,10); 
+         my $zone = $geohex->to_zone($lat,$lng,$size); 
+
+
         unless ( $map->{$zone->code} ) {
             $map->{$zone->code} = {
                 hex => $zone,
