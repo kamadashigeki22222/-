@@ -6,6 +6,7 @@
 read -p "username: " name
 read -p "idoubunkatu: " idoubunkatu
 read -p "paramater: " prm
+read -p "Hexsize: " size
 
 
 #export $name 
@@ -40,7 +41,7 @@ printf "input  stay_$user_name.csv\n"
 cd ..
 cd spot_times
 
-echo $user_name |perl code_count_times.pl 
+echo -e "$user_name\n $size\n" |perl code_count_times.pl 
 
 printf "output  new_hex_spot_times_$user_name.txt\n"
 printf "code_count_times.pl  end\n"
@@ -57,7 +58,7 @@ printf "merge_spot.pl start\n"
 printf "input  new_hex_spot_times_$user_name.txt\n"
 
 
-echo $user_name |perl merge_spot.pl 
+echo -e "$user_name\n $size\n" |perl merge_spot.pl 
 
 printf "output  merge2_hex_spot_times_filter_$user_name.txt\n"
 printf "merge_spot.pl  end\n"
@@ -74,7 +75,7 @@ printf "input  merge2_hex_spot_times_filter_$user_name.txt\n"
 #cd ..
 cd hex_plot
  
-echo -e "$user_name\n 1\n 1\n $prm\n" | perl polygon_for_hex.pl  
+echo -e "$user_name\n 1\n 1\n $prm\n $size\n" | perl polygon_for_hex.pl  
 
 
 printf "output  spot_$user_name.kml\n"
@@ -143,7 +144,7 @@ printf "input  merge2_hex_spot_times_filter_$user_name.txt\n"
 #cd ..
 cd hex_plot
  
-echo -e "$user_name\n 2\n $idoubunkatu\n $prm\n" | perl polygon_for_hex.pl  
+echo -e "$user_name\n 2\n $idoubunkatu\n $prm\n $size\n" | perl polygon_for_hex.pl  
 
 
 printf "output  spot_$user_name.kml\n"
@@ -178,7 +179,7 @@ printf "input  merge2_hex_spot_times_filter_$user_name.txt\n"
 #cd ..
 cd hex_plot
  
-echo -e "$user_name\n 3\n $idoubunkatu\n $prm\n" | perl polygon_for_hex.pl  
+echo -e "$user_name\n 3\n $idoubunkatu\n $prm\n $size\n" | perl polygon_for_hex.pl  
 
 
 printf "output  spot_$user_name.kml\n"
