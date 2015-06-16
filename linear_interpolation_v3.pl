@@ -10,6 +10,8 @@ use Path::Class;
 require 'nextzone\sub_get_next_zone.pl';
 require 'nextzone\sub_azimuth2.pl';
 
+my $level = 10;
+
 ##########distance of 2 points###############
   sub distance{
 	   my($lat_a, $lon_a, $lat_b, $lon_b) = @_;
@@ -19,36 +21,37 @@ require 'nextzone\sub_azimuth2.pl';
 	}
 #############################################
 
+# azi=角度　とgeohashのコードから
 sub switch{
 	   my ($azi,$geohex_code) = @_; 
-	   my $level=11;
+	   my $level2 = $level+1;
 	   my @code;
-	   my $element = substr($geohex_code,$level,1);
+	   my $element = substr($geohex_code,$level2,1);
 	   if($azi > 120 ){
 	   	#print "up_left\n";
-	   	return &up_left_zone($element,$level,$geohex_code,@code);
+	   	return &up_left_zone($element,$level2,$geohex_code,@code);
 	   }elsif($azi > 60){
 	   	#print "aaa=$azi\n";
 	   	#print "up\n";
-	   	return &up_zone($element,$level,$geohex_code,@code); 
+	   	return &up_zone($element,$level2,$geohex_code,@code); 
 	   }elsif($azi > 0){
 	   	#print "up_right\n";
-	   	return &up_right_zone($element,$level,$geohex_code,@code);
+	   	return &up_right_zone($element,$level2,$geohex_code,@code);
 	   }elsif($azi > -60){
 	   	#print "down_right\n";
-	   	return &down_right_zone($element,$level,$geohex_code,@code);	
+	   	return &down_right_zone($element,$level2,$geohex_code,@code);	
 	   }elsif($azi > -120){
 	   	#print "down\n";
-	   	return &down_zone($element,$level,$geohex_code,@code);
+	   	return &down_zone($element,$level2,$geohex_code,@code);
 	   }else{
 	   	#print "down_left\n";
-	   	return &down_left_zone($element,$level,$geohex_code,@code);
+	   	return &down_left_zone($element,$level2,$geohex_code,@code);
 	   }
 	 }
 	 
 sub dis_more_n_push{
 	my($lat_a,$lon_a,$lat_b,$lon_b,$geo,$dis,@hex) = @_;
-	my $level = 10;
+	#my $level = 10;
 	while($dis > 100){			
 	        #<STDIN>;   	
 	   	$lat_b = ($lat_a+$lat_b)/2;
@@ -94,7 +97,7 @@ sub return_sec{
 #my @file = glob($search);
 #print "file = @file\n";
 #直線補間のソース
-my $level = 10;
+#my $level = 10;
 print "running\n";
 my $n = 0;
 #while(@file){		
@@ -106,18 +109,19 @@ my $n = 0;
 	#滞在地のHexを除外したほうがいいかもしれない・・・
 		
 
-	print "user_name ";
-   	my $user_name = <STDIN>;
-    chomp($user_name);
-    print "idoubunkatu ";
-   	my $idoubunkatu = <STDIN>;
-    chomp($idoubunkatu);
+	#print "user_name ";
+   	my $user_name = 'kamada';#<STDIN>;
+    #chomp($user_name);
+    #print "idoubunkatu ";
+   	my $idoubunkatu = 1;#<STDIN>;
+    #chomp($idoubunkatu);
 
-my $outfile;
+	my $outfile;
 	#input
 	if($idoubunkatu == 1){
 		open(FP1,"gpxfile/$user_name/result/GM2TKfile0.txt") or die("cannot open the file");
-		my $out = file("move_times/linear/li_$user_name.txt");
+		#my $out = file("move_times/linear/li_$user_name.txt");
+		my $out = file("move_times/linear/test2.txt");
 		$outfile=$out;
 		
 		
@@ -138,7 +142,7 @@ my $outfile;
 	
 	my @hex;
 	my $tmp_geo;
-	
+	print "$line\n"; 
 	
 	while($line = <FP1>){
 		my $ret_code =0;
@@ -161,52 +165,72 @@ my $outfile;
 		push(@hex,$geo2);
 		my $dis = &distance($lat1,$lon1,$lat2,$lon2);
 
-		@hex = &dis_more_n_push($lat1,$lon1,$lat2,$lon2,$geo2,$dis,@hex);
+		@hex = dis_more_n_push($lat1,$lon1,$lat2,$lon2,$geo2,$dis,@hex);
 
 
 		my $t_lat;
 		my $t_lon;
 
+		my $count2 = 0;
 		while(@hex){
-	   	#print "test\n";
+			$count2++;
+
 			$tmp_geo = $hex[-1];
 	   	#print "tmp = $tmp_geo\n";
 			($t_lat,$t_lon) = geohex2latlng($tmp_geo);
 			$dis = &distance($lat1,$lon1,$t_lat,$t_lon);
+
+
+			# バグ
 			if($dis > 100){
-			@hex = &dis_more_n_push($lat1,$lon1,$t_lat,$t_lon,$tmp_geo,$dis,@hex);
-			#print "@hex\n";
-			$tmp_geo = $hex[-1];
-			($t_lat,$t_lon) = geohex2latlng($tmp_geo);
-			#<STDIN>;	   		   	
+				@hex = dis_more_n_push($lat1,$lon1,$t_lat,$t_lon,$tmp_geo,$dis,@hex);
+				#print "@hex\n";
+				$tmp_geo = $hex[-1];
+				($t_lat,$t_lon) = geohex2latlng($tmp_geo);
+				#<STDIN>;	   		   	
+				print "push \n";
 			}else{
 				pop(@hex);
+				print "pop $t_lat\n";
 			}
+
+
 			my $azi =  &azimuth($lat1,$lon1,$t_lat,$t_lon);
+			
+			my $ret_code_old1=0;
+			my $ret_code_old2=1;
 			while($ret_code ne $tmp_geo){ 	
-			#print "test\n";	
-				$ret_code = &switch($azi,$geo1);
+				#print "test\n";	
+				$ret_code = switch($azi,$geo1);
+
+				#print scalar(@hex)." $tmp_geo $ret_code $ret_code_old1 $ret_code_old2\n";
+
+				#print "$ret_code ret\n";
 		      #<STDIN>;	
 		      #print"ret = $ret_code\n";
-				if($ret_code eq $geo2){
+				if($geo2 eq $ret_code){
 					$writer->print("$ret_code,1\n");
 				}else{
 					$writer->print("$ret_code,0\n");
 				}
 				$geo1 = $ret_code;
 				($lat1,$lon1) = geohex2latlng($geo1);
-				$azi = &azimuth($lat1,$lon1,$t_lat,$t_lon);		      
+				$azi = &azimuth($lat1,$lon1,$t_lat,$t_lon);	# 角度？
+				#print "azi $azi\n";
+				if($ret_code eq $ret_code_old2){last;}
+				if($ret_code eq $ret_code_old1){last;}
+				$ret_code_old2 = $ret_code_old1;
+				$ret_code_old1 = $ret_code;   
 			}
 		}
-	@hex = ();
-
-	   
-	$lat1 = $t_lat;
-	   
-	$lon1 = $t_lon;
-	$geo1 = latlng2geohex($lat1,$lon1,$level);
-	$time1 = $time2;
-	#print "1roop\n";
+		@hex = ();
+		   
+		$lat1 = $t_lat;
+		   
+		$lon1 = $t_lon;
+		$geo1 = latlng2geohex($lat1,$lon1,$level);
+		$time1 = $time2;
+		#print "1roop\n";
 	   
 	}
 	$n++;
