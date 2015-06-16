@@ -11,6 +11,25 @@ use Time::HiRes;
 
 our %cut_spot;
 require 'nextzone\sub_get_next_zone.pl';
+
+#ユーザ名,パラメータ（いわゆる,論文のｔ）を入力
+print "input user name =>";
+my $user_name = <STDIN>;
+chomp($user_name);
+print "input paramater=>";
+my $prm = <STDIN>;
+chomp($prm);
+print "idoubunkatu ";
+my $idoubunkatu = <STDIN>;
+chomp($idoubunkatu);
+print "hexsize ";
+my $hexsize = <STDIN>;
+chomp($hexsize);
+
+
+
+
+
 #require 'perl_pl\linear_inerpolation\sub_azimuth.pl';
 #２地点のキョリ
 sub distance{
@@ -235,13 +254,48 @@ sub remove_hex{
 sub ret_spot_array{
 	my ($file)=@_;
 	my @ret_array=();
+	my $home;
+
 #自宅Hexを入力
 #上から順にUserA,B,C
 #自宅Hexは手動で探しました
 	#my $home = "XM5321346873"; #H_K
 	#my $home = "XM5321341673"; #K_A
 	#my $home = "XM5321308285"; #S_R
-	my $home = "XM5321347558"; #K_M
+	#my $home = "XM5321347558"; #K_M
+
+#if ($user_name == 1) {
+    if($hexsize == 10 ){
+
+ $home = "XM5321347558";
+    }elsif($hexsize == 9){
+
+$home = "XM532134755";
+    }elsif($hexsize == 8){
+
+   $home = "XM53213475";
+    }elsif($hexsize == 7){
+
+ $home = "XM5321347";
+    }elsif($hexsize == 6){
+
+ $home = "XM532134";
+    }elsif($hexsize == 5){
+
+$home = "XM53213";
+    }elsif($hexsize == 4){
+
+ $home = "XM5321";
+    }elsif($hexsize == 3){
+
+ $home = "XM532";
+    }elsif($hexsize == 2){
+
+ $home = "XM50";
+    }     
+        
+  
+        #}
 
 	#print "home= $home\n";
 	#push(@ret_array,$home);
@@ -268,39 +322,29 @@ sub ret_move_hash{
 	#print "m=@m\n";
 	return %ret_hash;
 }
-##ここから
-#ユーザ名,パラメータ（いわゆる,論文のｔ）を入力
-print "input user name =>";
-my $user_name = <STDIN>;
-chomp($user_name);
-print "input paramater=>";
-my $prm = <STDIN>;
-chomp($prm);
 
- print "idoubunkatu ";
-   	my $idoubunkatu = <STDIN>;
-    chomp($idoubunkatu);
+
+##ここから
+#main関数　ファイル操作など
+
 
 print "$user_name\n";
 #出力ファイル名
 #open(FP2, ">./auto_count_result/$user_name/merge/gn$prm-result_route_$user_name.txt") or die("cannot open the file");
 
 if($idoubunkatu == 1){
-open(FP2, ">./auto_count_result/$user_name/merge/gn$prm-result_route_$user_name.txt") or die("cannot open the file");
+open(FP2, ">./auto_count_result/$user_name/merge/gn$prm-result_route_$user_name$hexsize.txt") or die("cannot open the file");
 
 }elsif($idoubunkatu == 2){
-	open(FP2, ">./auto_count_result/$user_name/merge/bunkatu_gn$prm-result_route_$user_name.txt") or die("cannot open the file");
+	open(FP2, ">./auto_count_result/$user_name/merge/bunkatu_gn$prm-result_route_$user_name$hexsize.txt") or die("cannot open the file");
 
 }
-
-
-	
 
 	my $file = IO::File->new();
 	#$file ->open("<../spot_label/$_/new_stay_seikai_$_.txt") or die("cannot open the file");
 	#滞在Hex,頻度　のデータを入力　使うのは滞在Hex名のみです（ただし,この形式で入力しないと読み込むときに警告が連発します。気にしないのであるばOKです）
 	#ここで入力したファイルにある滞在Hexと自宅間を移動経路で連結できます。つまり正解の滞在Hexを読み込むか抽出した滞在Hexを用いるかで単体評価と総合評価に用いる結果が得られます
-	$file ->open("< ./spot_times/seikatutaizai/merge2_result_$user_name.txt") or die("cannot open the file");
+	$file ->open("< ./spot_times/seikatutaizai/merge2_result_$user_name$hexsize.txt") or die("cannot open the file");
 	
 
 	my $file2 = IO::File->new();
@@ -308,15 +352,15 @@ open(FP2, ">./auto_count_result/$user_name/merge/gn$prm-result_route_$user_name.
 	#$file2 ->open("< ./move_times/idou/idou333_$user_name.txt") or die("cannot open the file");
 	
 if($idoubunkatu == 1){
-$file2 ->open("< ./move_times/idou/idou_$user_name.txt") or die("cannot open the file");
+$file2 ->open("< ./move_times/idou/idou_$user_name$hexsize.txt") or die("cannot open the file");
 
 }elsif($idoubunkatu == 2){
-	$file2 ->open("< ./move_times/idou/bunkatu_idou_$user_name.txt") or die("cannot open the file");
+	$file2 ->open("< ./move_times/idou/bunkatu_idou_$user_name$hexsize.txt") or die("cannot open the file");
 }
 	my $file3 = IO::File->new();
 	#滞在Hex抽出で用いた　移動Hex,頻度　の形式のファイル　を入力してください
 	#これがない場合,∞の探索に陥る場合があります
-	$file3 ->open("< ./spot_times/merge/merge2_hex_spot_times_filter_$user_name.txt") or die("cannot open the file");
+	$file3 ->open("< ./spot_times/merge/merge2_hex_spot_times_filter_$user_name$hexsize.txt") or die("cannot open the file");
 	
 
 

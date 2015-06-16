@@ -46,13 +46,13 @@ use Path::Class;
     }elsif($jyoutai == 2){
 
         if($idoubunkatu == 1 ){
-            #open(FP,"< ../move_times/idou/idou_$user_name.txt") or die("cannot open the file"); #input fiel name
-             open(FP,"< ../move_times/linear/result1.txt") or die("cannot open the file"); #input fiel name
+            #open(FP,"< ../move_times/idou/idou_$user_name#size.txt") or die("cannot open the file"); #input fiel name
+            open(FP,"< ../move_times/idou/test2.txt") or die("cannot open the file"); #input fiel name
         
         }else{
         
         if($idoubunkatu == 2){
-         open(FP,"< ../move_times/idou/bunkatu_idou_$user_name.txt") or die("cannot open the file"); #input fiel name
+         open(FP,"< ../move_times/idou/bunkatu_idou_$user_name$size.txt") or die("cannot open the file"); #input fiel name
              }
         
             }
@@ -61,11 +61,11 @@ use Path::Class;
 
     }elsif($jyoutai == 3){
          if($idoubunkatu == 1 ){
-          open(FP,"< ../auto_count_result/kamada/merge/gn$prm-result_route_$user_name.txt") or die("cannot open the file"); #input fiel name
+          open(FP,"< ../auto_count_result/kamada/merge/gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
                
     }else{
          if($idoubunkatu == 2){
-         open(FP,"< ../auto_count_result/kamada/merge/bunkatu_gn$prm-result_route_$user_name.txt") or die("cannot open the file"); #input fiel name
+         open(FP,"< ../auto_count_result/kamada/merge/bunkatu_gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
             }
         }
     
@@ -103,12 +103,14 @@ if ($jyoutai == 1) {
     }elsif($jyoutai == 2){
 
         if($idoubunkatu == 1 ){
-            open(FH,"> kml/idou_$user_name.kml") or die("cannot open the file"); #input fiel name
+            #open(FH,"> kml/idou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+             open(FH,"> kml/test2.kml") or die("cannot open the file"); #input fiel name
+        
         
         }else{
         
         if($idoubunkatu == 2){
-         open(FH,"> kml/bunkatu_idou_$user_name.kml") or die("cannot open the file"); #input fiel name
+         open(FH,"> kml/bunkatu_idou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
              }
         
             }

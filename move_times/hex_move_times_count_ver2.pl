@@ -50,18 +50,62 @@ sub split_from_fp{
     print "idoubunkatu ";
    	my $idoubunkatu = <STDIN>;
     chomp($idoubunkatu);
+     print "hexsize ";
+   	my $hexsize = <STDIN>;
+    chomp($hexsize);
+    my $home;
+
+
 
 #滞在Hexのデータを入力
-open(FP1, "../spot_times/merge/merge2_hex_spot_times_filter_$user_name.txt") or die("cannot open the file");
+open(FP1, "../spot_times/merge/merge2_hex_spot_times_filter_$user_name$hexsize.txt") or die("cannot open the file");
 #open(FP1, "../spot_times/merge/merge2_hex_spot_times_filter_kamada.txt") or die("cannot open the file");
 
 
 
 my @spot_hex=();
+#if ($user_name == 1) {
+    if($hexsize == 10 ){
+
+    	$home = "XM5321347558";
+    }elsif($hexsize == 9){
+
+    	$home = "XM532134755";
+    }elsif($hexsize == 8){
+
+        $home = "XM53213475";
+    }elsif($hexsize == 7){
+
+     $home = "XM5321347";
+    }elsif($hexsize == 6){
+
+  $home = "XM532134";
+    }elsif($hexsize == 5){
+
+  $home = "XM53213";
+    }elsif($hexsize == 4){
+
+ $home = "XM5321";
+    }elsif($hexsize == 3){
+
+  $home = "XM532";
+    }elsif($hexsize == 2){
+
+    $home = "XM50";
+    }     
+        
+  
+        #}
+
+
+
+
+
+
 #my $home = "XM5321346873"; #H_K
 #my $home = "XM5321341673"; #K_A
 #my $home = "XM5321308285"; #S_R
-my $home = "XM5321347558"; #K_M
+#my $home = "XM5321347558"; #K_M
 
 
 
@@ -78,12 +122,12 @@ my %move_hex=();
  #input csv形式
 
  if($idoubunkatu == 1){
-open(FP3, " linear/li_$user_name.txt") or die("cannot open the file");
-open(FP4, "> idou/idou_$user_name.txt") or die("cannot open the file");
+open(FP3, " linear/li_$user_name$hexsize.txt") or die("cannot open the file");
+open(FP4, "> idou/idou_$user_name$hexsize.txt") or die("cannot open the file");
 
 }elsif($idoubunkatu == 2){
-	open(FP3, " linear/bunkatu_li_$user_name.txt") or die("cannot open the file");
-	open(FP4, "> idou/bunkatu_idou_$user_name.txt") or die("cannot open the file");
+	open(FP3, " linear/bunkatu_li_$user_name$hexsize.txt") or die("cannot open the file");
+	open(FP4, "> idou/bunkatu_idou_$user_name$hexsize.txt") or die("cannot open the file");
 
 }
 
