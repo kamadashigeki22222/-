@@ -113,7 +113,7 @@ while(my $line = <FP1>){
 	my ($code) = split(/,/,$line);
 	push(@spot_hex,$code);
 }
-print "@spot_hex\n";
+#print "@spot_hex\n";
 #自宅との距離が何m以上ならば除外するか
 printf "input remove hex dis =";
 my $filter = <STDIN>;

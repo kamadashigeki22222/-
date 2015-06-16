@@ -43,7 +43,8 @@ sub distance{
 	
 sub get_all_next_zone{
 	   my ($geohex_code) = @_; 
-	   my $level = 11;
+	   #my $level = 11;
+	   my $level = $hexsize+1;
 	   my @code=();
 	   my @next_hex=();
 	   my $next;
@@ -353,6 +354,7 @@ open(FP2, ">./auto_count_result/$user_name/merge/gn$prm-result_route_$user_name$
 	
 if($idoubunkatu == 1){
 $file2 ->open("< ./move_times/idou/idou_$user_name$hexsize.txt") or die("cannot open the file");
+
 
 }elsif($idoubunkatu == 2){
 	$file2 ->open("< ./move_times/idou/bunkatu_idou_$user_name$hexsize.txt") or die("cannot open the file");

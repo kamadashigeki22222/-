@@ -30,7 +30,7 @@ use Path::Class;
     my $prm = <STDIN>;
     chomp($prm);
 
-    #350行目で使用Hexのサイズを変更
+    #Hexのサイズを変更
     print "input size=>";
     my $size = <STDIN>;
     chomp($size);
@@ -46,8 +46,8 @@ use Path::Class;
     }elsif($jyoutai == 2){
 
         if($idoubunkatu == 1 ){
-            #open(FP,"< ../move_times/idou/idou_$user_name#size.txt") or die("cannot open the file"); #input fiel name
-            open(FP,"< ../move_times/idou/test2.txt") or die("cannot open the file"); #input fiel name
+            open(FP,"< ../move_times/idou/idou_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+            #open(FP,"< ../move_times/idou/test2.txt") or die("cannot open the file"); #input fiel name
         
         }else{
         
@@ -98,13 +98,13 @@ use Path::Class;
 if ($jyoutai == 1) {
     #print "a";
          #print "$user_name ";
-         open(FH,"> kml/spot_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+         open(FH,"> kml/tspot_$user_name$size.kml") or die("cannot open the file"); #input fiel name
          
     }elsif($jyoutai == 2){
 
         if($idoubunkatu == 1 ){
-            #open(FH,"> kml/idou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
-             open(FH,"> kml/test2.kml") or die("cannot open the file"); #input fiel name
+            open(FH,"> kml/tidou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+             #open(FH,"> kml/test2.kml") or die("cannot open the file"); #input fiel name
         
         
         }else{
@@ -119,11 +119,11 @@ if ($jyoutai == 1) {
 
     }elsif($jyoutai == 3){
          if($idoubunkatu == 1 ){
-          open(FH,"> kml/gn$prm-result_route_$user_name.kml") or die("cannot open the file"); #input fiel name
+          open(FH,"> kml/tgn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
                
     }else{
          if($idoubunkatu == 2){
-          open(FH,"> kml/bunkatu_gn$prm-result_route_$user_name.kml") or die("cannot open the file"); #input fiel name
+          open(FH,"> kml/tbunkatu_gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
             }
         }
     

@@ -41,7 +41,7 @@ printf "input  stay_$user_name.csv\n"
 cd ..
 cd spot_times
 
-echo -e "$user_name\n $size\n" |perl code_count_times.pl 
+echo -e "$user_name\n$size\n" |perl code_count_times.pl 
 
 printf "output  new_hex_spot_times_$user_name.txt\n"
 printf "code_count_times.pl  end\n"
@@ -58,7 +58,7 @@ printf "merge_spot.pl start\n"
 printf "input  new_hex_spot_times_$user_name.txt\n"
 
 
-echo -e "$user_name\n $size\n" |perl merge_spot.pl 
+echo -e "$user_name\n$size\n" |perl merge_spot.pl 
 
 printf "output  merge2_hex_spot_times_filter_$user_name.txt\n"
 printf "merge_spot.pl  end\n"
@@ -72,10 +72,10 @@ printf "________________________________________________________________\n"
 printf "________________________________________________________________\n"
 printf "polygon_for_hex.pl start\n"
 printf "input  merge2_hex_spot_times_filter_$user_name.txt\n"
-#cd ..
+cd ..
 cd hex_plot
  
-echo -e "$user_name\n 1\n 1\n $prm\n $size\n" | perl polygon_for_hex.pl  
+echo -e "$user_name\n1\n1\n$prm\n$size\n" | perl polygon_for_hex.pl  
 
 
 printf "output  spot_$user_name.kml\n"
@@ -107,15 +107,15 @@ fi
 
 #直線補間linear_interpolation_v3.pl
 printf "________________________________________________________________\n"
-printf "linear_interpolation_v3.pl start\n"
+printf "linear_interpolation_v5.pl start\n"
 printf "input  GM2TKfile0.txt move_$user_name.csv\n"
 
  
-echo -e "$user_name\n $idoubunkatu\n " | perl linear_interpolation_v3.pl 
+echo -e "$user_name\n$idoubunkatu\n$size\n" | perl linear_interpolation_v5.pl 
 
 
 printf "output li_$user_name.txt   bunkatu_li_$user_name.txt\n"
-printf "linear_interpolation_v3.pl  end\n"
+printf "linear_interpolation_v5.pl  end\n"
 printf "________________________________________________________________\n"
 
 
@@ -128,7 +128,7 @@ printf "input  li_$user_name.txt   bunkatu_li_$user_name.txt\n"
 cd move_times
 
  
-echo -e "$user_name\n $idoubunkatu\n 20000\n " | perl hex_move_times_count_ver2.pl 
+echo -e "$user_name\n$idoubunkatu\n$size\n20000\n " | perl hex_move_times_count_ver2.pl 
 
 
 printf "output idou_$user_name.txt    bunkatu_idou_$user_name.txt\n"
@@ -141,11 +141,11 @@ printf "________________________________________________________________\n"
 printf "________________________________________________________________\n"
 printf "polygon_for_hex.pl start\n"
 printf "input  merge2_hex_spot_times_filter_$user_name.txt\n"
-#cd ..
+cd ..
 cd hex_plot
  
-echo -e "$user_name\n 2\n $idoubunkatu\n $prm\n $size\n" | perl polygon_for_hex.pl  
-
+#echo -e "$user_name\n 2\n $idoubunkatu\n $prm\n $size\n" | perl polygon_for_hex.pl  
+ echo -e "$user_name\n2\n$idoubunkatu\n$prm\n$size\n" | perl polygon_for_hex.pl  
 
 printf "output  spot_$user_name.kml\n"
 printf "polygon_for_hex.pl   end\n"
@@ -162,7 +162,7 @@ cd ..
 
 
 
-echo -e "$user_name\n $idoubunkatu\n $prm\n " | perl route_edit_ver3.pl 
+echo -e "$user_name\n$idoubunkatu\n$prm\n$size\n" | perl route_edit_ver3.pl 
 
 
 printf "output gn$prm-result_route_$user_name.txt        bunkatu_gn$prm-result_route_$user_name.txt\n"
@@ -179,7 +179,7 @@ printf "input  merge2_hex_spot_times_filter_$user_name.txt\n"
 #cd ..
 cd hex_plot
  
-echo -e "$user_name\n 3\n $idoubunkatu\n $prm\n $size\n" | perl polygon_for_hex.pl  
+echo -e "$user_name\n3\n$idoubunkatu\n$prm\n$size\n" | perl polygon_for_hex.pl  
 
 
 printf "output  spot_$user_name.kml\n"
