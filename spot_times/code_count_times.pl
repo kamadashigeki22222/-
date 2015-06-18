@@ -39,7 +39,7 @@ my $file = IO::File->new();
 $file ->open("../kasai_program/result/stay_$user_name.csv") or die("cannot open the file");
 
 
-open(FP1, "> code/new_hex_spot_times_$user_name$level.txt") or die("cannot open the file");
+open(FP1, "> code/$user_name/new_hex_spot_times_$user_name$level.txt") or die("cannot open the file");
 
 my %spot_hex = &count_hex($file);
 foreach my $key (sort{$spot_hex{$b} <=> $spot_hex{$a}}keys %spot_hex){

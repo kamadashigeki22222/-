@@ -12,14 +12,14 @@ print "user_name ";
 my $user_name = <STDIN>;
 chomp($user_name);
 #47行目のファイル名をを決める際に使用
-print "input size=>";
+print "input Hexsize=>";
 my $size = <STDIN>;
 chomp($size);
 
 
 
 my $file = IO::File->new();
-my $input = 'code/new_hex_spot_times_'.$user_name.''.$size.'.txt';
+my $input = 'code/'.$user_name.'/new_hex_spot_times_'.$user_name.''.$size.'.txt';
 
 
 #my $input = ' code/new_hex_spot_times_kamada.txt';
@@ -45,7 +45,7 @@ sub a_in_hash{
 }
 
 #output
-open(FP2, "> merge/merge2_hex_spot_times_filter_$user_name$size.txt") or die("cannot open the file");
+open(FP2, "> merge/$user_name/merge2_hex_spot_times_$user_name$size.txt") or die("cannot open the file");
 
 my @geo=();
  

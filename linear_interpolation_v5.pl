@@ -101,14 +101,14 @@ my $outfile;
 
 	if($idoubunkatu == 1){
 		open(FP1,"gpxfile/$user_name/result/GM2TKfile0.txt") or die("cannot open the file");
-		my $out = file("move_times/linear/li_$user_name$level.txt");
+		my $out = file("move_times/linear/$user_name/li_$user_name$level.txt");
 		#my $out = file("move_times/linear/test2.txt");
 		$outfile=$out;
 		
 		
 	}elsif($idoubunkatu == 2){
 		open(FP1,"kasai_program/result/move_$user_name.txt") or die("cannot open the file");
-		my $out = file("move_times/linear/bunkatu_li_$user_name$level.txt");
+		my $out = file("move_times/linear/$user_name/bunkatu_li_$user_name$level.txt");
 		$outfile=$out;	
 	}
 	

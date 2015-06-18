@@ -58,7 +58,7 @@ sub split_from_fp{
 
 
 #滞在Hexのデータを入力
-open(FP1, "../spot_times/merge/merge2_hex_spot_times_filter_$user_name$hexsize.txt") or die("cannot open the file");
+open(FP1, "../spot_times/merge/$user_name/merge2_hex_spot_times_$user_name$hexsize.txt") or die("cannot open the file");
 #open(FP1, "../spot_times/merge/merge2_hex_spot_times_filter_kamada.txt") or die("cannot open the file");
 
 
@@ -122,12 +122,12 @@ my %move_hex=();
  #input csv形式
 
  if($idoubunkatu == 1){
-open(FP3, " linear/li_$user_name$hexsize.txt") or die("cannot open the file");
-open(FP4, "> idou/idou_$user_name$hexsize.txt") or die("cannot open the file");
+open(FP3, " linear/$user_name/li_$user_name$hexsize.txt") or die("cannot open the file");
+open(FP4, "> idou/$user_name/idou_$user_name$hexsize.txt") or die("cannot open the file");
 
 }elsif($idoubunkatu == 2){
-	open(FP3, " linear/bunkatu_li_$user_name$hexsize.txt") or die("cannot open the file");
-	open(FP4, "> idou/bunkatu_idou_$user_name$hexsize.txt") or die("cannot open the file");
+	open(FP3, " linear/$user_name/bunkatu_li_$user_name$hexsize.txt") or die("cannot open the file");
+	open(FP4, "> idou/$user_name/bunkatu_idou_$user_name$hexsize.txt") or die("cannot open the file");
 
 }
 

@@ -39,20 +39,20 @@ use Path::Class;
 
     #入力ファイル
     if ($jyoutai == 1) {
-         open(FP,"< ../spot_times/merge/merge2_hex_spot_times_filter_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+         open(FP,"< ../spot_times/merge/$user_name/merge2_hex_spot_times_$user_name$size.txt") or die("cannot open the file"); #input fiel name
          #open(FP,"< ../spot_times/code/new_hex_spot_times_kamada.txt") or die("cannot open the file"); #input fiel name
          #open(FP,"< ../spot_times/merge/merge2_hex_spot_times_filter_kamada.txt") or die("cannot open the file"); #input fiel name
         
     }elsif($jyoutai == 2){
 
         if($idoubunkatu == 1 ){
-            open(FP,"< ../move_times/idou/idou_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+            open(FP,"< ../move_times/idou/$user_name/idou_$user_name$size.txt") or die("cannot open the file"); #input fiel name
             #open(FP,"< ../move_times/idou/test2.txt") or die("cannot open the file"); #input fiel name
         
         }else{
         
         if($idoubunkatu == 2){
-         open(FP,"< ../move_times/idou/bunkatu_idou_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+         open(FP,"< ../move_times/idou/$user_name/bunkatu_idou_$user_name$size.txt") or die("cannot open the file"); #input fiel name
              }
         
             }
@@ -61,11 +61,11 @@ use Path::Class;
 
     }elsif($jyoutai == 3){
          if($idoubunkatu == 1 ){
-          open(FP,"< ../auto_count_result/kamada/merge/gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+          open(FP,"< ../auto_count_result/$user_name/merge/gn$prm/gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
                
     }else{
          if($idoubunkatu == 2){
-         open(FP,"< ../auto_count_result/kamada/merge/bunkatu_gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+         open(FP,"< ../auto_count_result/$user_name/merge/gn$prm/bunkatu_gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
             }
         }
     
@@ -98,19 +98,19 @@ use Path::Class;
 if ($jyoutai == 1) {
     #print "a";
          #print "$user_name ";
-         open(FH,"> kml/tspot_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+         open(FH,"> kml/$user_name/taizai/spot_$user_name$size.kml") or die("cannot open the file"); #input fiel name
          
     }elsif($jyoutai == 2){
 
         if($idoubunkatu == 1 ){
-            open(FH,"> kml/tidou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+            open(FH,"> kml/$user_name/idou/idou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
              #open(FH,"> kml/test2.kml") or die("cannot open the file"); #input fiel name
         
         
         }else{
         
         if($idoubunkatu == 2){
-         open(FH,"> kml/bunkatu_idou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+         open(FH,"> kml/$user_name/idou/bunkatu_idou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
              }
         
             }
@@ -119,11 +119,11 @@ if ($jyoutai == 1) {
 
     }elsif($jyoutai == 3){
          if($idoubunkatu == 1 ){
-          open(FH,"> kml/tgn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+          open(FH,"> kml/$user_name/seikatu/gn$prm/gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
                
     }else{
          if($idoubunkatu == 2){
-          open(FH,"> kml/tbunkatu_gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+          open(FH,"> kml/$user_name/seikatu/gn$prm/bunkatu_gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
             }
         }
     
