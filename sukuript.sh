@@ -25,7 +25,7 @@ printf "new_dwell.pl start\n"
 printf "input  gpxfile\n"
 cd kasai_program
 
-#echo $user_name |perl new_dwell.pl 
+echo $user_name |perl new_dwell.pl 
 
 printf "output  stay_$name.csv  move_$user_name.csv \n"
 printf "new_dwell.pl end\n"
@@ -41,7 +41,7 @@ printf "input  stay_$user_name.csv\n"
 cd ..
 cd spot_times
 
-#echo -e "$user_name\n$size\n" |perl code_count_times.pl 
+echo -e "$user_name\n$size\n" |perl code_count_times.pl 
 
 printf "output  new_hex_spot_times_$user_name.txt\n"
 printf "code_count_times.pl  end\n"
@@ -58,7 +58,7 @@ printf "merge_spot.pl start\n"
 printf "input  new_hex_spot_times_$user_name.txt\n"
 
 
-#echo -e "$user_name\n$size\n" |perl merge_spot.pl 
+echo -e "$user_name\n$size\n" |perl merge_spot.pl 
 
 printf "output  merge2_hex_spot_times_filter_$user_name.txt\n"
 printf "merge_spot.pl  end\n"
@@ -75,9 +75,10 @@ printf "input  merge2_hex_spot_times_filter_$user_name.txt\n"
 cd ..
 cd hex_plot
  
-#echo -e "$user_name\n1\n1\n$prm\n$size\n" | perl polygon_for_hex.pl  
+echo -e "$user_name\n1\n1\n$prm\n$size\n" | perl polygon_for_hex.pl  
 
-
+cd ..
+ 
 printf "output  spot_$user_name.kml\n"
 printf "polygon_for_hex.pl   end\n"
 printf "________________________________________________________________\n"
@@ -92,9 +93,9 @@ if test $idoubunkatu -eq 1 ; then
 printf "________________________________________________________________\n"
 printf "convertGM2TK-ver2\n"
 printf "input  gpxfile\n"
-cd ..
+#cd ..
 
-#echo $user_name | perl convertGM2TK_ver2.pl 
+echo $user_name | perl convertGM2TK_ver2.pl 
 
 
 printf "output  GM2TKfile0.txt\n"
@@ -109,9 +110,9 @@ fi
 printf "________________________________________________________________\n"
 printf "linear_interpolation_v5.pl start\n"
 printf "input  GM2TKfile0.txt move_$user_name.csv\n"
-
+#cd ..
  
-# echo -e "$user_name\n$idoubunkatu\n$size\n" | perl linear_interpolation_v5.pl 
+echo -e "$user_name\n$idoubunkatu\n$size\n" | perl linear_interpolation_v5.pl 
 
 
 printf "output li_$user_name.txt   bunkatu_li_$user_name.txt\n"
@@ -128,7 +129,7 @@ printf "input  li_$user_name.txt   bunkatu_li_$user_name.txt\n"
 cd move_times
 
  
-# echo -e "$user_name\n$idoubunkatu\n$size\n20000\n " | perl hex_move_times_count_ver2.pl 
+echo -e "$user_name\n$idoubunkatu\n$size\n20000\n " | perl hex_move_times_count_ver2.pl 
 
 
 printf "output idou_$user_name.txt    bunkatu_idou_$user_name.txt\n"

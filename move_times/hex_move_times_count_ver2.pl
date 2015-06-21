@@ -64,7 +64,13 @@ open(FP1, "../spot_times/merge/$user_name/merge2_hex_spot_times_$user_name$hexsi
 
 
 my @spot_hex=();
-#if ($user_name == 1) {
+
+if($user_name eq "kasai"){
+	 if($hexsize == 10 ){
+
+    	$home = "XM5321341673";
+    }
+	}elsif ($user_name eq "kamada") {
     if($hexsize == 10 ){
 
     	$home = "XM5321347558";
@@ -95,7 +101,7 @@ my @spot_hex=();
     }     
         
   
-        #}
+        }
 
 
 

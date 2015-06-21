@@ -265,39 +265,44 @@ sub ret_spot_array{
 	#my $home = "XM5321308285"; #S_R
 	#my $home = "XM5321347558"; #K_M
 
-#if ($user_name == 1) {
+if($user_name eq "kasai"){
+
+	$home = "XM5321341673"; #K_A
+
+}elsif ($user_name eq "kamada"){
     if($hexsize == 10 ){
-    	$home = "XM5321341673";
+    	
+    	$home = "XM5321347558"; #K_M
 
  #$home = "XM5321347558";
-    }#elsif($hexsize == 9){
+    }elsif($hexsize == 9){
 
-#$home = "XM532134755";
-    #}elsif($hexsize == 8){
+$home = "XM532134755";
+    }elsif($hexsize == 8){
 
-   #$home = "XM53213475";
-  #  }elsif($hexsize == 7){
+   $home = "XM53213475";
+    }elsif($hexsize == 7){
 
- #$home = "XM5321347";
- #   }elsif($hexsize == 6){
+ $home = "XM5321347";
+    }elsif($hexsize == 6){
 
-# $home = "XM532134";
-#    }elsif($hexsize == 5){
+ $home = "XM532134";
+    }elsif($hexsize == 5){
 
-#$home = "XM53213";
-#    }elsif($hexsize == 4){
+$home = "XM53213";
+    }elsif($hexsize == 4){
 
- #$home = "XM5321";
-  #  }elsif($hexsize == 3){
+ $home = "XM5321";
+    }elsif($hexsize == 3){
 
- #$home = "XM532";
-#    }elsif($hexsize == 2){
+ $home = "XM532";
+    }elsif($hexsize == 2){
 
- #$home = "XM50";
-#    }     
+$home = "XM50";
+    }     
         
   
-        #}
+        }
 
 	#print "home= $home\n";
 	#push(@ret_array,$home);

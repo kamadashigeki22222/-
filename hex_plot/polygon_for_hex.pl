@@ -20,7 +20,7 @@ use Path::Class;
      chomp($user_name);
     #print $username ." test\n";
     # $_ = <STDIN>;
-    print "jyoutai ";
+    print "jyoutai 1 taizai 2 idou 3 seikatuido";
     my $jyoutai = <STDIN>;
      chomp($jyoutai);
     print "idoubunkatu ";
@@ -68,8 +68,7 @@ use Path::Class;
          open(FP,"< ../auto_count_result/$user_name/merge/gn$prm/bunkatu_gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
             }
         }
-    
-    
+   
 }
 
     #my $input = '../hex_count/auto_count_result/'.$_.'/new/gn3-result_route_'.$_.'.txt';
@@ -113,10 +112,7 @@ if ($jyoutai == 1) {
          open(FH,"> kml/$user_name/idou/bunkatu_idou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
              }
         
-            }
-        
-        
-
+            }      
     }elsif($jyoutai == 3){
          if($idoubunkatu == 1 ){
           open(FH,"> kml/$user_name/seikatu/gn$prm/gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
@@ -126,10 +122,7 @@ if ($jyoutai == 1) {
           open(FH,"> kml/$user_name/seikatu/gn$prm/bunkatu_gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
             }
         }
-    
-    
 }
-
 
     print FH '<?xml version="1.0" encoding="UTF-8"?>
     <kml xmlns="http://www.opengis.net/kml/2.2">

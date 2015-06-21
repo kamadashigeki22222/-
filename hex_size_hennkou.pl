@@ -13,7 +13,9 @@ use Path::Class;
      my $size = 10;
      my $user = "$user_name$size";
 
-
+ print "idou or seikatuidou ";
+    my $mode = <STDIN>;
+    chomp($mode);
 
  print "idoubunkatu ";
     my $idoubunkatu = <STDIN>;
@@ -27,6 +29,24 @@ print "hexsize ";
 
 my @line2;
 
+
+
+while($level > 1 ){
+
+
+	if($mode == 1){
+
+		if($idoubunkatu == 1 ){
+          open(FP,"< move_times/idou/$user_name/idou_$user.txt") or die("cannot open the file"); #input fiel name
+               
+    }else{
+         if($idoubunkatu == 2){
+        	open(FP,"< move_times/idou/$user_name/bunkatu_idou_$user.txt") or die("cannot open the file"); #input fiel name
+            }
+        }
+
+	}elsif($mode == 2){
+
         if($idoubunkatu == 1 ){
           open(FP,"< auto_count_result/$user_name/merge/gn$prm/gn$prm-result_route_$user.txt") or die("cannot open the file"); #input fiel name
                
@@ -35,26 +55,35 @@ my @line2;
          open(FP,"< auto_count_result/$user_name/merge/gn$prm/bunkatu_gn$prm-result_route_$user.txt") or die("cannot open the file"); #input fiel name
             }
         }
-    
+    }
  
-    if($idoubunkatu == 1 ){
-          open(FH,"> hexsize/$user_name/gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+if($mode == 1){
+		   if($idoubunkatu == 1 ){
+          open(FH,"> hexsize/$user_name/gn$prm/route_$user_name$level.txt") or die("cannot open the file"); #input fiel name
                
     }else{
          if($idoubunkatu == 2){
-          open(FH,"> hexsize/$user_name/bunkatu_gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+          open(FH,"> hexsize/$user_name/gn$prm/bunkatu_route_$user_name$level.txt") or die("cannot open the file"); #input fiel name
             }
         }
+	}elsif($mode == 2){
+
+    if($idoubunkatu == 1 ){
+          open(FH,"> hexsize/$user_name/gn$prm/gn$prm-result_route_$user_name$level.txt") or die("cannot open the file"); #input fiel name
+               
+    }else{
+         if($idoubunkatu == 2){
+          open(FH,"> hexsize/$user_name/gn$prm/bunkatu_gn$prm-result_route_$user_name$level.txt") or die("cannot open the file"); #input fiel name
+            }
+        }
+}
 
 
 
 
-
-
-
+#print $level ;
 while(my $line = <FP>){     
         chomp($line);  
-
 
    my $level2 = $level+2;
 
@@ -81,3 +110,7 @@ while ($i < $kai){
 	$i ++;
 }
 
+@line2 = ();
+
+$level --;
+}
