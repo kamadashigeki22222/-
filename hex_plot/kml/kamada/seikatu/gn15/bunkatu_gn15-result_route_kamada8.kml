@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <kml xmlns="http://www.opengis.net/kml/2.2">
+      <Document>
+        <name>kamada</name>
+        <description>kamada</description>
+<Placemark>
+<name>XM53213458</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.898287862623,34.688922108327,40
+133.899303967891,34.6903692184402,40
+133.901336178428,34.6903692184402,40
+133.902352283697,34.688922108327,40
+133.901336178428,34.6874749729157,40
+133.899303967891,34.6874749729157,40
+133.898287862623,34.688922108327,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213567</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.901336178428,34.6961574059033,40
+133.902352283697,34.6976043895192,40
+133.904384494234,34.6976043895192,40
+133.905400599502,34.6961574059033,40
+133.904384494234,34.6947103969869,40
+133.902352283697,34.6947103969869,40
+133.901336178428,34.6961574059033,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213453</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.901336178428,34.6845806262012,40
+133.902352283697,34.686027812207,40
+133.904384494234,34.686027812207,40
+133.905400599502,34.6845806262012,40
+133.904384494234,34.6831334148989,40
+133.902352283697,34.6831334148989,40
+133.901336178428,34.6845806262012,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213564</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.898287862623,34.6947103969869,40
+133.899303967891,34.6961574059033,40
+133.901336178428,34.6961574059033,40
+133.902352283697,34.6947103969869,40
+133.901336178428,34.6932633627706,40
+133.899303967891,34.6932633627706,40
+133.898287862623,34.6947103969869,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213456</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.904384494234,34.686027812207,40
+133.905400599502,34.6874749729157,40
+133.907432810039,34.6874749729157,40
+133.908448915308,34.686027812207,40
+133.907432810039,34.6845806262012,40
+133.905400599502,34.6845806262012,40
+133.904384494234,34.686027812207,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213802</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.901336178428,34.6990513478343,40
+133.902352283697,34.7004982808479,40
+133.904384494234,34.7004982808479,40
+133.905400599502,34.6990513478343,40
+133.904384494234,34.6976043895192,40
+133.902352283697,34.6976043895192,40
+133.901336178428,34.6990513478343,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213454</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.898287862623,34.686027812207,40
+133.899303967891,34.6874749729157,40
+133.901336178428,34.6874749729157,40
+133.902352283697,34.686027812207,40
+133.901336178428,34.6845806262012,40
+133.899303967891,34.6845806262012,40
+133.898287862623,34.686027812207,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213810</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ff2800FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.898287862623,34.7004982808479,10
+133.899303967891,34.7019451885597,10
+133.901336178428,34.7019451885597,10
+133.902352283697,34.7004982808479,10
+133.901336178428,34.6990513478342,10
+133.899303967891,34.6990513478342,10
+133.898287862623,34.7004982808479,10
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213560</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.898287862623,34.6918163032549,40
+133.899303967891,34.6932633627706,40
+133.901336178428,34.6932633627706,40
+133.902352283697,34.6918163032549,40
+133.901336178428,34.6903692184402,40
+133.899303967891,34.6903692184402,40
+133.898287862623,34.6918163032549,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213480</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.907432810039,34.6874749729158,40
+133.908448915308,34.688922108327,40
+133.910481125845,34.688922108327,40
+133.911497231113,34.6874749729158,40
+133.910481125845,34.686027812207,40
+133.908448915308,34.686027812207,40
+133.907432810039,34.6874749729158,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<name>XM53213483</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ffa000FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.910481125845,34.688922108327,40
+133.911497231113,34.6903692184402,40
+133.91352944165,34.6903692184402,40
+133.914545546919,34.688922108327,40
+133.91352944165,34.6874749729157,40
+133.911497231113,34.6874749729157,40
+133.910481125845,34.688922108327,40
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark> </Document>
+    </kml>
+    

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <kml xmlns="http://www.opengis.net/kml/2.2">
+      <Document>
+        <name>kamada</name>
+        <description>kamada</description>
+<Placemark>
+<name>XM532137</name>
+<Style> 
+   <LineStyle> 
+       <linecolor>ff000000</linecolor> 
+       <width>3</width> 
+   </LineStyle> 
+   <PolyStyle> 
+     <color>ff2800FF</color> 
+   </PolyStyle> 
+</Style>
+<Polygon>
+   <extrude>1</extrude>
+   <altitudeMode>relativeToGround</altitudeMode>
+   <outerBoundaryIs><LinearRing><coordinates>
+                133.918609967993,34.6947103969869,10
+133.927754915409,34.7077325663789,10
+133.946044810242,34.7077325663789,10
+133.955189757659,34.6947103969869,10
+133.946044810242,34.6816861783005,10
+133.927754915409,34.6816861783005,10
+133.918609967993,34.6947103969869,10
+   </coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark> </Document>
+    </kml>
+    
