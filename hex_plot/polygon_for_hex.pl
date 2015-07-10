@@ -53,6 +53,7 @@ use Path::Class;
         
         if($idoubunkatu == 2){
          open(FP,"< ../move_times/idou/$user_name/bunkatu_idou_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+          #open(FP,"< ../move_times/idou/$user_name/hayashi_more3.txt") or die("cannot open the file"); #input fiel name
              }
         
             }
@@ -62,10 +63,12 @@ use Path::Class;
     }elsif($jyoutai == 3){
          if($idoubunkatu == 1 ){
           open(FP,"< ../auto_count_result/$user_name/merge/gn$prm/gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+          #open(FP,"< ../auto_count_result/$user_name/merge/gn$prm/test2.txt") or die("cannot open the file"); #input fiel name
                
     }else{
          if($idoubunkatu == 2){
-         open(FP,"< ../auto_count_result/$user_name/merge/gn$prm/bunkatu_gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+         open(FP,"< ../auto_count_result/$user_name/merge/gn$prm/testbunkatu_gn$prm-result_route_$user_name$size.txt") or die("cannot open the file"); #input fiel name
+         #open(FP,"< ../auto_count_result/$user_name/merge/gn$prm/test3.txt") or die("cannot open the file"); #input fiel name
             }
         }
    
@@ -109,20 +112,26 @@ if ($jyoutai == 1) {
         }else{
         
         if($idoubunkatu == 2){
-         open(FH,"> kml/$user_name/idou/bunkatu_idou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+         #open(FH,"> kml/$user_name/idou/3bunkatu_idou_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+         open(FH,"> kml/$user_name/idou/test.kml") or die("cannot open the file"); #input fiel name
              }
         
             }      
     }elsif($jyoutai == 3){
          if($idoubunkatu == 1 ){
           open(FH,"> kml/$user_name/seikatu/gn$prm/gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+          #open(FH,"> kml/$user_name/seikatu/gn$prm/ttest3gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
                
     }else{
          if($idoubunkatu == 2){
-          open(FH,"> kml/$user_name/seikatu/gn$prm/bunkatu_gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+          #open(FH,"> kml/$user_name/seikatu/gn$prm/testbunkatu_gn$prm-result_route_$user_name$size.kml") or die("cannot open the file"); #input fiel name
+           open(FH,"> kml/$user_name/seikatu/gn$prm/test.kml") or die("cannot open the file"); #input fiel name
             }
         }
 }
+
+
+open(FH2,"> kml/$user_name/tets.txt") or die("cannot open the file"); #input fiel name
 
     print FH '<?xml version="1.0" encoding="UTF-8"?>
     <kml xmlns="http://www.opengis.net/kml/2.2">
@@ -162,63 +171,122 @@ if ($jyoutai == 1) {
     # $fh->print($dom->toString( 1 ));
     # $fh->close;
 
-
+#赤
 sub getR{
         my ($i) = @_;
-        $i = $i*10;    
+        #$i = $i*2;   
+        if($i >= 50){
+          print FH2 "$i \n";
+
+        }
+ 
         if($i> 255){
          $i = 255;
         }
         my $ret;
-	if($i < 128){
-		$ret = 0;
-	}elsif($i > 127 && $i < 191){
-		$ret = ($i-127)*4;
-	}elsif($i > 190){
-		$ret = 255;
-	}
+
+if($i <= 2){
+
+$ret = 0;
+
+}elsif($i >= 3 && $i <= 49 ){
+
+  $ret = 0;
+
+}elsif($i >= 50){
+
+  $ret = 255;
+}
+
+
+	#if($i < 128){
+	#	$ret = 0;
+	#}elsif($i > 127 && $i < 191){
+	#	$ret = ($i-127)*4;
+	#}elsif($i > 190){
+	#	$ret = 255;
+	#}
 	
         $ret = sprintf "%02x", $ret;
         #print "R = $ret\n";
 	return $ret;
 }
 
+#緑
 sub getG{
     
         my ($i) = @_;
-        $i = $i*10;     
+        #$i = $i*10;     
         if($i> 255){
          $i = 255;
         }
         my $ret;
-	if($i >= 64 && $i <= 191){
-		$ret = 255;
-	}elsif($i < 64){
-		$ret =  $i * 4;
-	}else{
-		$ret = 256-($i-191)*4;
-	}
+
+if($i <= 2){
+
+$ret = 0;
+
+
+}elsif($i >= 3 && $i <= 49){
+
+  $ret = 255;  
+}elsif($i >= 50 ){
+
+  $ret = 0;
+
+}
+
+
+
+
+
+	#if($i >= 64 && $i <= 191){
+	#	$ret = 255;
+	#}elsif($i < 64){
+	#	$ret =  $i * 4;
+	#}else{
+	#	$ret = 256-($i-191)*4;
+	#}
         $ret = sprintf "%02x", $ret;
         #print "R = $ret\n";
 	return $ret;
 }
 
+#青
 sub getB{
     
         my ($i) = @_;
-        $i = $i*10;
+        #$i = $i*2;
         if($i> 255){
          $i = 255;
         }
-        
-        my $ret;
-	if($i <= 64){
-		$ret = 255;
-	}elsif($i > 64 && $i < 127){
-		$ret = 255-($i-64)*4;
-	}elsif($i >= 127){
-		$ret = 0;
-	}
+  
+       my $ret;
+	
+
+if($i <= 2){
+
+$ret = 255;
+
+
+}elsif($i >= 3 && $i <= 49){
+
+  $ret = 0;  
+
+}elsif($i >= 50 ){
+
+  $ret = 0;
+
+}
+
+
+  #if($i <= 64){
+	#	$ret = 255;
+	#}elsif($i > 64 && $i < 127){
+	#	$ret = 255-($i-64)*4;
+	#}elsif($i >= 127){
+	#	$ret = 0;
+	#}
         $ret = sprintf "%02x", $ret;
         #print "R = $ret\n";	
 	return $ret;
@@ -272,7 +340,7 @@ sub create_placemark_node {
      my $green = getG($attr{count});
      my $blue = getB($attr{count});
 # #ヒートマップ
-     my $colorcode =$blue.$green.$red."FF";
+     my $colorcode ="ff".$blue.$green.$red;
 
      #$colorcode = "ff000000";
 
@@ -318,11 +386,11 @@ print FH "<Polygon>
            #$str .= sprintf "%f,%f,%d\n", $coord->[1], $coord->[0], 30;
         #}else{
         	#高さ
-           $str .= sprintf "%f,%f,%d\n", $coord->[1], $coord->[0], $attr{count}*10;
+           #$str .= sprintf "%f,%f,%d\n", $coord->[1], $coord->[0], $attr{count}*2;
         #}
-        print FH $coord->[1].",".  $coord->[0].",". ($attr{count}*10)."\n";
+        print FH $coord->[1].",".  $coord->[0].",". (3)."\n"; #($attr{count}*2)."\n";
     }
-    print FH @{$coords}[0]->[1].",".  @{$coords}[0]->[0].",". ($attr{count}*10)."\n";
+    print FH @{$coords}[0]->[1].",".  @{$coords}[0]->[0].",". (3)."\n"; #($attr{count}*2)."\n";
 
     print FH "   </coordinates></LinearRing></outerBoundaryIs>
 </Polygon>
